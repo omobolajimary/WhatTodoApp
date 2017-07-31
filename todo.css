@@ -3,27 +3,37 @@ html{
    
 }
 .title{
-    color:blue;
+
+    padding-top: 30px;
+
 }
-body{
+
+
+.header{
     margin:80px;
     padding-left:40px;
-    
+    border-color: #1c1716;
+    box-sizing: border-box;
+    padding-right: 40px;
+    background-color: #aa8c86;
+    padding-bottom:40px;
 }
+
 input{
     width:75%;
     padding: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left:40px;
     font-size: 16px;
+
+    
     
 }
 button{
     padding: 10px;
-    width:250px;
+    width:25%;
     font-size: 16px;
-    
+   
     
    
 }
@@ -36,6 +46,7 @@ ul li {
     padding: 12px 8px 12px 40px;
     background: #eee;
     font-size: 18px;
+    margin-left: -40px;
     transition: 0.2s;
 }
 ul li:nth-child(odd) {
@@ -55,6 +66,7 @@ ul li.checked::before {
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
+    text-decoration: line-through;
 }
 
 li{
@@ -70,6 +82,7 @@ li{
     position:absolute;
     right:0;
     color:#bbb;
+    padding-right:10px;
 }
 .fa-trash:hover{
     color:white;

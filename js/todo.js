@@ -1,3 +1,4 @@
+//Local Storage
 function get_todos() {
     var todos = new Array;
     var todos_str = localStorage.getItem('todo');
@@ -7,7 +8,7 @@ function get_todos() {
     return todos;
 }
 
-
+// Add an item when the add button is clicked
 function add() {
     if (!window["localStorage"]) { 
         alert("No local storage support");
@@ -26,13 +27,13 @@ function add() {
  
     return false;
 }
-
+// Show Todo List
 function getList() {
     var todos = get_todos();
  
     var html = '<ul>';
     for(var i=0; i<todos.length; i++) {
-        html += '<li>' + todos[i] + '<i class="fa fa-trash remove" id ="'+ i + '"></i></li>';
+        html += '<li onclick = "checked">' + todos[i] + '<i class="fa fa-trash remove" id ="'+ i + '"></i></li>';
     };
     html += '</ul>';
  
@@ -43,6 +44,7 @@ function getList() {
         iClass[i].addEventListener('click', remove);
     };
 }
+// Delete an item when the trash button is clicked
 function remove() {
     var id = this.getAttribute('id');
     var todos = get_todos();
@@ -53,5 +55,15 @@ function remove() {
  
     return false;
 }
+// Add a "checked" symbol when an item is clicked 
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+      for (var i = 0; i<=list.length; i++){
+          ev.target.classList.toggle( 'checked');
+      }
+    
+  }
+}, false);
 document.getElementById('add').addEventListener('click', add);
 getList();
