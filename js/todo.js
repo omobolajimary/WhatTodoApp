@@ -33,7 +33,7 @@ function getList() {
  
     var html = '<ul>';
     for(var i=0; i<todos.length; i++) {
-        html += '<li onclick = "checked">' + todos[i] + '<i class="fa fa-trash remove" id ="'+ i + '"></i></li>';
+        html += '<li class = "" onclick = "checked">' + todos[i] + '<i class="fa fa-trash remove" id ="'+ i + '"></i></li>';
     };
     html += '</ul>';
  
@@ -59,11 +59,9 @@ function remove() {
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
-      for (var i = 0; i<=list.length; i++){
-          ev.target.classList.toggle( 'checked');
-      }
-    
+    ev.target.classList.toggle('checked');
   }
 }, false);
+
 document.getElementById('add').addEventListener('click', add);
 getList();
