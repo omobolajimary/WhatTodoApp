@@ -33,7 +33,7 @@ function getList() {
  
     var html = '<ul>';
     for(var i=0; i<todos.length; i++) {
-        html += '<li class = "" onclick = "checked">' + todos[i] + '<i class="fa fa-trash remove" id ="'+ i + '"></i></li>';
+        html += '<li >' + todos[i] + '<i class="fa fa-trash remove" id ="'+ i + '"></i></li>';
     };
     html += '</ul>';
  
@@ -43,6 +43,12 @@ function getList() {
     for (var i=0; i < iClass.length; i++) {
         iClass[i].addEventListener('click', remove);
     };
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+  }
+}, false);
 }
 // Delete an item when the trash button is clicked
 function remove() {
@@ -55,13 +61,8 @@ function remove() {
  
     return false;
 }
-// Add a "checked" symbol when an item is clicked 
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+//Add a "checked" symbol when an item is clicked 
+
 
 document.getElementById('add').addEventListener('click', add);
 getList();
